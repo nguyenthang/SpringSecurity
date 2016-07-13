@@ -1,5 +1,6 @@
 package com.security.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "com.security")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
+    @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setViewClass(JstlView.class);
@@ -25,6 +27,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry.addResourceHandler("/static/**").addResourceLocations("/static/");
     }

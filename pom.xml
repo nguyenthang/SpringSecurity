@@ -22,19 +22,7 @@
             <target>1.8</target>
           </configuration>
         </plugin>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <groupId>org.apache.maven.plugins</groupId>
-          <version>2.6</version>
-          <configuration>
-            <warSourceDirectory>/SpringSecurityBasedLogin/src/main/webapp</warSourceDirectory>
-            <warName>SpringSecurityBasedLogin</warName>
-            <failOnMissingWebXml>false</failOnMissingWebXml>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
-
-    <finalName>SpringSecurityBasedLogin</finalName>
   </build>
 </project>

@@ -49,28 +49,45 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         }
 
         if(isDba(roles)){
-            url = "/db";
+            url = "/dba";
         }else if(isAdmin(roles)){
             url = "/admin";
         }else if(isUser(roles)){
             url = "/user";
         }else {
-            url = "accessDenied";
+            url = "/accessDenied";
         }
 
         return url;
     }
 
+    /*
+        Check to make sure the user role is contained
+     */
     private boolean isUser(Set<String> roles) {
-        return roles.contains("ROLE_USER");
+
+        boolean isEmpty = roles.contains("ROLE_USER");
+        if(isEmpty){
+            return true;
+        }
+        return false;
+
     }
 
     private boolean isAdmin(Set<String> roles) {
-        return roles.contains("ROLE_ADMIN");
+        boolean isAdmin = roles.contains("ROLE_ADMIN");
+        if(isAdmin){
+            return true;
+        }
+        return false;
     }
 
     private boolean isDba(Set<String> roles) {
-        return roles.contains("ROLE_DBA");
+        boolean isDba = roles.contains("ROLE_DBA");
+        if(isDba){
+           return true;
+        }
+        return false;
     }
 
     @Override

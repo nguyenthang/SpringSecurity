@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("thang").password("thang").roles("USER");
         auth.inMemoryAuthentication().withUser("thang2").password("thang2").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("thang2").password("thang3").roles("ADMIN", "USER");
+        auth.inMemoryAuthentication().withUser("thang3").password("thang3").roles("ADMIN", "USER");
     }
 
     @Override
@@ -30,12 +30,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                 .antMatchers("/", "/home").access("hasRole('USER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
-                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                .antMatchers("/dba/**").access("hasRole('ADMIN') and hasRole('DBA')")
                 .and()
                 .formLogin().loginPage("/login").successHandler(customSuccessHandler)
                 .usernameParameter("ssoId").passwordParameter("password")
                 .and().csrf()
-                .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+                .and().exceptionHandling().accessDeniedPage("/accessDenied");
     }
 
     public CustomSuccessHandler getCustomSuccessHandler() {

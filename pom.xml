@@ -8,6 +8,7 @@
   <name>SpringSecurity</name>
   <modules>
     <module>SpringSecurityBasedLogin</module>
+    <module>core-model</module>
   </modules>
 
   <build>

@@ -1,7 +1,6 @@
 package com.security.controller;
 
-import com.sun.deploy.net.HttpResponse;
-import org.springframework.http.HttpRequest;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,8 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class LoginController {
 
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(){
+
         return "login";
     }
 

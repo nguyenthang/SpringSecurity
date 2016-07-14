@@ -8,7 +8,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{WebMvcConfig.class, WebSecurityConfig.class};
+        return new Class<?>[]{ThymeleafConfig.class, WebSecurityConfig.class};
     }
 
     @Override

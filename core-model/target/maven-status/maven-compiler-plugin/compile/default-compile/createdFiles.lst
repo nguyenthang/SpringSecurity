@@ -1,0 +1,4 @@
+com/core/model/User.class
+com/core/config/HibernateConfiguration.class
+com/core/model/Profile.class
+com/core/App.class
